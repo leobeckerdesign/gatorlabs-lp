@@ -1,0 +1,24 @@
+services:
+  lp:
+    image: ghcr.io/leobeckerdesign/gatorlabs-lp:latest
+    pull_policy: always
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.gatorlabs-lp.rule=Host(`gatorlabs.leobecker.com`)
+      - traefik.http.routers.gatorlabs-lp.entrypoints=websecure
+      - traefik.http.routers.gatorlabs-lp.tls.certResolver=letsencrypt
+      - traefik.http.services.gatorlabs-lp.loadbalancer.server.port=80
+
+networks:
+  dokploy-network:
+    external: true
