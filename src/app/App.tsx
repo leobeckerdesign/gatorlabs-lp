@@ -1,8 +1,11 @@
 import { RetroWindow } from "./components/RetroWindow";
 import { ToolItem } from "./components/ToolItem";
+import { VideoPlayer } from "./components/VideoPlayer";
 import svgPaths from "../imports/Frame2147224234/svg-26h9m0jbr5";
 import imgRectangle34658916 from "../imports/Frame2147224234/ece298d0ec2c16f10310d45724b276a6035cb503.png";
 import imgRectangle34658902 from "../imports/Frame2147224234/6765e429a0161c0496d3576ebdc07f64750ebfdc.png";
+import imgPersonagens from "../assets/personagens.png";
+import imgSnappy from "../assets/snappy.jpg";
 
 function GatorLabsLogo() {
   return (
@@ -73,9 +76,9 @@ export default function App() {
   ];
 
   return (
-    <div className="bg-[#005c54] min-h-screen w-full overflow-x-hidden">
+    <div className="bg-[#00201c] min-h-screen w-full overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative pt-[13px] pb-[32px] bg-gradient-to-b from-[#00201c] from-[3.276%] via-[#005c54] via-[74.181%] to-[#f05524] flex flex-col items-center overflow-hidden">
+      <div className="relative pt-[13px] bg-gradient-to-b from-[#00201c] from-[3.276%] via-[#005c54] via-[74.181%] to-[#f05524] flex flex-col items-center overflow-hidden">
         {/* Grid texture overlay — mobile (10 colunas) */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.08] lg:hidden"
@@ -104,41 +107,63 @@ export default function App() {
             <GatorLabsLogo />
           </div>
           <p className="font-['Geist_Mono',sans-serif] text-[16px] sm:text-[18px] lg:text-[24px] leading-[1.4] text-[#c4b597] text-center max-w-[420px] lg:max-w-[700px] px-4 lg:mt-[24px]">
-            O laboratório de conteúdo para ajudar a melhorar a sua experiência com a tecnologia criativa no seu dia a dia.
+            Aula gratuita sobre Engenharia Criativa e o novo perfil de profissional que o mercado precisa.
           </p>
-          <button className="bg-[#e75726] border border-[#00201c] shadow-[4px_4px_0px_#00201c] h-[39px] lg:h-[45px] px-[15px] lg:px-[20px] py-[4px] hover:shadow-[2px_2px_0px_#00201c] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-            <p className="font-['JetBrains_Mono',sans-serif] font-medium text-[12px] lg:text-[14px] leading-[1.4] text-[#00201c]">CONTRATAR VPS</p>
-          </button>
+          <a href="#player" className="inline-flex items-center justify-center bg-[#e75726] border border-[#00201c] shadow-[4px_4px_0px_#00201c] h-[39px] lg:h-[45px] px-[15px] lg:px-[20px] py-[4px] hover:shadow-[2px_2px_0px_#00201c] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+            <p className="font-['JetBrains_Mono',sans-serif] font-medium text-[12px] lg:text-[14px] leading-[1.4] text-[#00201c]">ASSISTIR AULA</p>
+          </a>
         </div>
 
-        {/* Video Player Window */}
-        <div className="mt-[32px] w-[calc(100%-32px)] max-w-[391px] lg:max-w-[800px] z-10">
-          <RetroWindow title="TOOL" contentClassName="p-0">
-            <div className="relative w-full aspect-[392/217]">
-              <iframe
-                className="absolute inset-0 w-full h-full border border-[#00201c]"
-                src="https://www.youtube.com/embed/8CbjjKCnbwk"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </RetroWindow>
+        {/* Personagens image at the bottom of the hero */}
+        <img
+          src={imgPersonagens}
+          alt="Leo Becker e mascote GatorLabs"
+          className="mt-[24px] lg:mt-[32px] w-full max-w-[432px] lg:max-w-[816px] block z-10"
+        />
+      </div>
+
+      {/* Video Section title and description */}
+      <div id="player" className="mx-[16px] pt-[40px] pb-[32px] max-w-[440px] lg:max-w-[1000px] sm:mx-auto">
+        <div className="flex items-center gap-[7px] mb-[12px]">
+          <div className="bg-[#e75726] size-[10px] lg:size-[14px]" />
+          <p className="font-['Pixelify_Sans',sans-serif] text-[14px] lg:text-[16px] leading-[1.4] text-[#c4b597]">A AULA</p>
         </div>
+        <h2 className="font-['Big_Shoulders',sans-serif] font-bold text-[28px] sm:text-[32px] lg:text-[64px] leading-[1.2] text-[#c4b597] max-w-[337px] lg:max-w-[900px]">
+          A nova categoria de profissional que a indústria criativa demanda
+        </h2>
+        <p className="font-['Geist_Mono',sans-serif] text-[14px] lg:text-[16px] leading-[1.5] text-[#c4b597] max-w-[332px] lg:max-w-[600px] mt-[18px]">
+          Nesta superaula gratuita, Leo Becker destrincha os principais conceitos da Engenharia Criativa, o campo que surge com o avanço da tecnologia e mantém o olhar afiado para design e inovação de negócios.
+        </p>
+      </div>
+
+      {/* Video Player Window */}
+      <div className="mx-auto w-[calc(100%-32px)] max-w-[440px] lg:max-w-[1000px]">
+        <RetroWindow title="TOOL" contentClassName="p-0">
+          <VideoPlayer videoId="8CbjjKCnbwk" />
+        </RetroWindow>
       </div>
 
       {/* Section title and description */}
-      <div className="px-[16px] pt-[40px] pb-[32px] max-w-[440px] lg:max-w-[1000px] mx-auto">
+      <div className="mx-[16px] pt-[40px] pb-[32px] max-w-[440px] lg:max-w-[1000px] sm:mx-auto">
         <div className="flex items-center gap-[7px] mb-[12px]">
           <div className="bg-[#e75726] size-[10px] lg:size-[14px]" />
           <p className="font-['Pixelify_Sans',sans-serif] text-[14px] lg:text-[16px] leading-[1.4] text-[#c4b597]">FERRAMENTAS</p>
         </div>
-        <h2 className="font-['Instrument_Serif',sans-serif] text-[28px] sm:text-[32px] lg:text-[64px] leading-[1.0] text-[#c4b597] max-w-[337px] lg:max-w-[900px]">
-          As 10 principais ferramentas para engenharia criativa
+        <h2 className="font-['Big_Shoulders',sans-serif] font-bold text-[28px] sm:text-[32px] lg:text-[64px] leading-[1.2] text-[#c4b597] max-w-[337px] lg:max-w-[900px]">
+          As 10 principais ferramentas do engenheiro criativo
         </h2>
         <p className="font-['Geist_Mono',sans-serif] text-[14px] lg:text-[16px] leading-[1.5] text-[#c4b597] max-w-[332px] lg:max-w-[600px] mt-[18px]">
-          O laboratório de conteúdo para ajudar a melhorar a sua experiência com a tecnologia criativa no seu dia a dia.
+          Selecionamos as ferramentas gratuitas que não podem faltar no stack do engenheiro criativo, abrindo um novo leque de possibilidades para projetos que unem design e tecnologia.
         </p>
+
+        <a
+          href="https://www.hostgator.com.br/52667-13-3-12.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center bg-[#e75726] border border-[#00201c] shadow-[4px_4px_0px_#00201c] h-[39px] lg:h-[45px] px-[15px] lg:px-[20px] py-[4px] mt-[24px] hover:shadow-[2px_2px_0px_#00201c] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+        >
+          <p className="font-['JetBrains_Mono',sans-serif] font-medium text-[12px] lg:text-[14px] leading-[1.4] text-[#00201c]">CONTRATAR VPS</p>
+        </a>
       </div>
 
       {/* Tools Section */}
@@ -155,7 +180,7 @@ export default function App() {
             {tools.map((tool, index) => (
               <div key={index}>
                 <div className="py-[12px] sm:py-[16px]">
-                  <ToolItem name={tool.name} description={tool.description} />
+                  <ToolItem number={index + 1} name={tool.name} description={tool.description} />
                 </div>
                 {index < tools.length - 1 && (
                   <div className="w-full h-[1px]">
@@ -175,19 +200,19 @@ export default function App() {
         {/* Desktop: container centralizado com sobreposição */}
         <div className="relative lg:w-[620px] lg:h-[580px] lg:mx-auto">
           {/* Segunda foto — atrás */}
-          <div className="absolute top-[64px] right-[16px] w-[240px] lg:w-[320px] lg:top-[48px] lg:right-0 z-0 shadow-[6px_6px_0px_rgba(0,32,28,0.7)]">
+          <div className="absolute top-[64px] right-[16px] w-[200px] sm:w-[240px] lg:w-[320px] lg:top-[48px] lg:right-0 z-0 shadow-[6px_6px_0px_rgba(0,32,28,0.7)]">
             <RetroWindow title="FOTO" contentClassName="p-0">
               <div className="relative w-full aspect-[300/400]">
                 <img
-                  alt="Leo Becker 2"
+                  alt="Mascote Snappy GatorLabs"
                   className="absolute inset-0 w-full h-full object-cover border border-[#00201c]"
-                  src={imgRectangle34658902}
+                  src={imgSnappy}
                 />
               </div>
             </RetroWindow>
           </div>
           {/* Primeira foto — frente */}
-          <div className="relative z-10 w-[240px] lg:w-[320px] lg:absolute lg:top-0 lg:left-0 shadow-[6px_6px_0px_rgba(0,32,28,0.7)]">
+          <div className="relative z-10 w-[200px] sm:w-[240px] lg:w-[320px] lg:absolute lg:top-0 lg:left-0 shadow-[6px_6px_0px_rgba(0,32,28,0.7)]">
             <RetroWindow title="FOTO" contentClassName="p-0">
               <div className="relative w-full aspect-[300/400]">
                 <img
@@ -205,20 +230,25 @@ export default function App() {
       <div className="px-[16px] mt-[80px] lg:-mt-[70px] max-w-[440px] lg:max-w-[1000px] mx-auto">
         <div className="flex items-center gap-[7px] mb-[12px]">
           <div className="bg-[#e75726] size-[10px] lg:size-[14px]" />
-          <p className="font-['Pixelify_Sans',sans-serif] text-[14px] lg:text-[16px] leading-[1.4] text-[#c4b597]">QUEM SOMOS</p>
+          <p className="font-['Pixelify_Sans',sans-serif] text-[14px] lg:text-[16px] leading-[1.4] text-[#c4b597]">O PROJETO</p>
         </div>
 
-        <h3 className="font-['Instrument_Serif',sans-serif] text-[32px] sm:text-[38px] lg:text-[64px] leading-[1.0] text-[#c4b597] max-w-[337px] lg:max-w-[900px] mb-[12px]">
-          Leo Becker, há 20 anos no mercado criativo
+        <h3 className="font-['Big_Shoulders',sans-serif] font-bold text-[32px] sm:text-[38px] lg:text-[64px] leading-[1.2] text-[#c4b597] max-w-[337px] lg:max-w-[900px] mb-[12px]">
+          Leo Becker e HostGator juntos para destravar o próximo nível da sua carreira
         </h3>
 
-        <p className="font-['JetBrains_Mono',sans-serif] text-[14px] lg:text-[16px] leading-[1.5] text-[#c4b597] lg:max-w-[800px] mb-[12px]">
-          Designer e professor, atua no mercado criativo há mais de 20 anos. Já liderou dezenas de projetos em múltiplas plataformas, sempre aliando tecnologia e criatividade com um craft impecável. Como consultor criativo independente, colabora com negócios de todos os portes na construção de narrativas visuais que impulsionam a audiência, fortalecem marcas e geram resultados extraordinários. Apaixonado por inovação, pesquisa e integra tecnologias emergentes e inteligência artificial a seus processos, elevando cada projeto de design a um patamar de vanguarda.
+        <p className="font-['JetBrains_Mono',sans-serif] text-[14px] lg:text-[16px] leading-[1.5] text-[#c4b597] lg:max-w-[800px]">
+          Nesta parceria inédita, o designer e engenheiro criativo Leo Becker, com mais de 20 anos de estrada na indústria, se une à HostGator, uma das maiores referências em infraestrutura para web e sistemas. Juntos, oferecem o conhecimento e a base técnica que profissionais criativos precisam para colocar tecnologia no centro dos seus projetos.
         </p>
 
-        <button className="bg-[#e75726] border border-[#00201c] shadow-[4px_4px_0px_#00201c] h-[39px] lg:h-[45px] px-[15px] lg:px-[20px] py-[4px] hover:shadow-[2px_2px_0px_#00201c] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+        <a
+          href="https://www.hostgator.com.br/52667-13-3-12.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center bg-[#e75726] border border-[#00201c] shadow-[4px_4px_0px_#00201c] h-[39px] lg:h-[45px] px-[15px] lg:px-[20px] py-[4px] mt-[24px] hover:shadow-[2px_2px_0px_#00201c] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+        >
           <p className="font-['JetBrains_Mono',sans-serif] font-medium text-[12px] lg:text-[14px] leading-[1.4] text-[#00201c]">CONTRATAR VPS</p>
-        </button>
+        </a>
       </div>
 
       {/* Image Section */}
@@ -226,7 +256,7 @@ export default function App() {
       {/* About Section 2 */}
 
       {/* Footer */}
-      <div className="py-[30px] text-center max-w-[440px] lg:max-w-[1000px] mx-auto">
+      <div className="px-[16px] py-[30px] text-left max-w-[440px] lg:max-w-[1000px] mx-auto">
         <p className="font-['JetBrains_Mono',sans-serif] font-medium text-[12px] leading-[1.4] text-[#c4b597]">
           © 2026 LEO BECKER MEDIA HOUSE
         </p>
