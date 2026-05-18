@@ -53,11 +53,9 @@ function GatorLabsLogo() {
 
 function MenuButton() {
   return (
-    <div className="bg-[#e75726] border border-[#00201c] shadow-[2px_2px_0px_#00201c] size-[40px] flex items-center justify-center">
-      <svg className="block size-[30.9992px]" fill="none" preserveAspectRatio="none" viewBox="0 0 30.9992 30.9992">
-        <path d={svgPaths.p2d999b80} fill="#00201c" />
-      </svg>
-    </div>
+    <svg className="block size-[25px]" fill="none" preserveAspectRatio="none" viewBox="0 0 30.9992 30.9992">
+      <path d={svgPaths.p2d999b80} fill="#e75726" />
+    </svg>
   );
 }
 
@@ -97,7 +95,7 @@ export default function App() {
         />
 
         {/* Menu Button */}
-        <div className="absolute top-[12px] left-[15px] z-50">
+        <div className="absolute top-[32px] left-1/2 -translate-x-1/2 z-50">
           <MenuButton />
         </div>
 
@@ -138,8 +136,8 @@ export default function App() {
 
       {/* Video Player Window */}
       <div className="mx-auto w-[calc(100%-32px)] max-w-[440px] lg:max-w-[1000px]">
-        <RetroWindow title="TOOL" contentClassName="p-0">
-          <VideoPlayer videoId="8CbjjKCnbwk" />
+        <RetroWindow title="AULA GRATUITA" contentClassName="p-0">
+          <VideoPlayer videoId="5XxvwS7M9lg" />
         </RetroWindow>
       </div>
 
@@ -201,7 +199,7 @@ export default function App() {
         <div className="relative lg:w-[620px] lg:h-[580px] lg:mx-auto">
           {/* Segunda foto — atrás */}
           <div className="absolute top-[64px] right-[16px] w-[200px] sm:w-[240px] lg:w-[320px] lg:top-[48px] lg:right-0 z-0 shadow-[6px_6px_0px_rgba(0,32,28,0.7)]">
-            <RetroWindow title="FOTO" contentClassName="p-0">
+            <RetroWindow title="SNAPPY" contentClassName="p-0">
               <div className="relative w-full aspect-[300/400]">
                 <img
                   alt="Mascote Snappy GatorLabs"
@@ -213,7 +211,7 @@ export default function App() {
           </div>
           {/* Primeira foto — frente */}
           <div className="relative z-10 w-[200px] sm:w-[240px] lg:w-[320px] lg:absolute lg:top-0 lg:left-0 shadow-[6px_6px_0px_rgba(0,32,28,0.7)]">
-            <RetroWindow title="FOTO" contentClassName="p-0">
+            <RetroWindow title="LEO BECKER" contentClassName="p-0">
               <div className="relative w-full aspect-[300/400]">
                 <img
                   alt="Leo Becker"
@@ -227,7 +225,7 @@ export default function App() {
       </div>
 
       {/* About Section 1 */}
-      <div className="px-[16px] mt-[80px] lg:-mt-[70px] max-w-[440px] lg:max-w-[1000px] mx-auto">
+      <div className="px-[16px] mt-[40px] lg:-mt-[70px] max-w-[440px] lg:max-w-[1000px] mx-auto">
         <div className="flex items-center gap-[7px] mb-[12px]">
           <div className="bg-[#e75726] size-[10px] lg:size-[14px]" />
           <p className="font-['Pixelify_Sans',sans-serif] text-[14px] lg:text-[16px] leading-[1.4] text-[#c4b597]">O PROJETO</p>
